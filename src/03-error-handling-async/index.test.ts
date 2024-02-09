@@ -1,30 +1,41 @@
 // Uncomment the code below and write your tests
-// import { throwError, throwCustomError, resolveValue, MyAwesomeError, rejectCustomError } from './index';
+
+
+// Error handling & async
+// Your task is to test functions that work asynchronously/throw/reject exceptions..
+
+// Write your tests in src/03-error-handling-async/index.test.ts.
+
+// @ts-ignore
+import { throwError, throwCustomError, resolveValue, MyAwesomeError, rejectCustomError } from './index';
 
 describe('resolveValue', () => {
   test('should resolve provided value', async () => {
-    // Write your test here
+    const value = 'test'
+    expect(await resolveValue(value)).toEqual(value);
   });
 });
 
 describe('throwError', () => {
   test('should throw error with provided message', () => {
-    // Write your test here
+    expect(throwError('test error')).toThrow(/^test error$/)
   });
 
   test('should throw error with default message if message is not provided', () => {
-    // Write your test here
+    const defaultErrorMessage ='Oops!';
+    expect(throwError).toThrow(new Error(defaultErrorMessage))
   });
 });
 
 describe('throwCustomError', () => {
   test('should throw custom error', () => {
-    // Write your test here
+    expect(throwCustomError).toThrow(MyAwesomeError)
   });
 });
 
 describe('rejectCustomError', () => {
   test('should reject custom error', async () => {
-    // Write your test here
+    // await expect(fetchData()).rejects.toMatch('error');
+    // expect(await rejectCustomError()).rejects.toMatch('error');
   });
 });
