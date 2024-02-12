@@ -1,6 +1,4 @@
-//@ts-ignore
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-//@ts-ignore
 import { throttledGetDataFromApi } from './index';
 
 
